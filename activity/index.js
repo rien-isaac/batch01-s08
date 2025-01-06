@@ -10,11 +10,15 @@ class Pokemon {
     console.log(`${this.name} attack ${opponent.name}!`);
   }
 
+  calculateDamage() {
+    return (this.dmg += 2);
+  }
+
   receivedDamage(opponent) {
     this.hp -= opponent.dmg;
     if (this.hp <= 0) {
       console.log(`${this.name} has fainted.`);
-      console.log(`${opponent.name} level up ${opponent.level + 1}`);
+      //   console.log(`${opponent.name} level up ${opponent.level + 1}`);
     } else {
       console.log(`${this.name} has ${this.hp} HP left.`);
     }
@@ -24,7 +28,13 @@ class Pokemon {
     this.hp += 10;
     console.log(`${this.name} has 10 HP! Current HP: ${this.hp}`);
   }
+
+  powerUp() {
+    this.dmg += 16;
+    console.log(`${this.name} uses power up and increase its damage by 16.`);
+  }
 }
+
 class ElectricPokemon extends Pokemon {
   constructor(name, level, hp, dmg) {
     //calling the base constructor
@@ -51,6 +61,19 @@ class FirePokemon extends Pokemon {
   }
 }
 
+class RockPokemon extends Pokemon {
+  constructor(name, level, hp, dmg) {
+    //calling the base constructor
+    super(name, "Rock", level, hp, dmg);
+  }
+  //polymorphism; override attack() method for fire pokemon
+  attack(opponent) {
+    console.log(`${this.name} uses Earthquake on ${opponent.name}`);
+    let dmg = this.dmg * 3;
+    opponent.receivedDamage(opponent);
+  }
+}
+
 class WaterPokemon extends Pokemon {
   constructor(name, level, hp, dmg) {
     //calling the base constructor
@@ -60,7 +83,7 @@ class WaterPokemon extends Pokemon {
   attack(opponent) {
     console.log(`${this.name} uses Hydro Pump on ${opponent.name}`);
     let dmg = this.dmg * 3;
-    opponent.receivedDamage(dmg);
+    opponent.receivedDamage(opponent);
   }
 
   heal() {
@@ -99,7 +122,7 @@ let torchick = new FirePokemon("Torchick", 20, 20, 20);
 let mudkip = new WaterPokemon("Mudkip", 20, 20, 20);
 
 //red's pokemons
-let geodude = new Pokemon("Geodude", "rock", 6, 10, 3);
+let geodude = new RockPokemon("Geodude", 6, 10, 3);
 let tutubi = new ElectricPokemon("Tutubi", 20, 20, 20);
 
 /* Mini activity
@@ -130,6 +153,7 @@ class Battle {
     this.pokemon1 = pokemon1;
     this.pokemon2 = pokemon2;
   }
+
   startBattle() {
     console.log(
       `The battle between ${this.pokemon1.name} and ${this.pokemon2.name} has started`
@@ -151,9 +175,58 @@ class Battle {
   }
 }
 
+class DualBattle {
+  constructor() {
+    this.pokemons = [];
+  }
+
+  startDualBattle(pokemon1, pokemon2, pokemon3, pokemon4) {
+    this.pokemons.push(pokemon1);
+    this.pokemons.push(pokemon2);
+    this.pokemons.push(pokemon3);
+    this.pokemons.push(pokemon4);
+
+    console.log(
+      `The Dual Battle ${this.pokemons[0].name} and ${this.pokemons[1].name} VS ${this.pokemons[2].name} and ${this.pokemons[3].name}`
+    );
+
+    while (
+      this.pokemons[0].hp > 0 ||
+      (this.pokemons[1].hp > 0 && this.pokemons[2].hp) ||
+      this.pokemons[3].hp > 0
+    ) {
+      this.pokemons[0].attack(this.pokemons[Math.random() + 2]);
+      this.pokemons[1].attack(this.pokemons[Math.random() + 2]);
+
+      if (this.pokemons[3].hp > 0 || this.pokemons[4].hp > 0) {
+        this.pokemons[3].attack(this.pokemons[Math.random()]);
+        this.pokemons[4].attack(this.pokemons[Math.random()]);
+        break;
+      }
+
+      if (this.pokemons[0].hp <= 0 && this.pokemons[1].hp <= 0) {
+        console.log(
+          `Team 1's ${this.pokemons[0].name} and ${this.pokemons[1].name} Wins`
+        );
+      } else {
+        console.log(
+          `Team 2's ${this.pokemons[2].name} and ${this.pokemons[3].name} Wins`
+        );
+      }
+    }
+  }
+}
+
 //trainers pokemon
-let ashPokemon = ash.selectPokemon(1);
+let ashPokemon = ash.selectPokemon(0);
 let redPokemon = red.selectPokemon(0);
 
 let battle = new Battle(ashPokemon, redPokemon);
 battle.startBattle();
+
+// mudkip.powerUp();
+// mudkip.receivedDamage(geodude);
+// geodude.attack(mudkip);
+// mudkip.attack(geodude);
+let dualBattle = new DualBattle();
+dualBattle.startDualBattle(ashPokemon, redPokemon, ashPokemon, redPokemon);
