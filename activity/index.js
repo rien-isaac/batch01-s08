@@ -117,14 +117,14 @@ let arceus = new Pokemon("Arceus", "Legendary", 100, 100, 100);
 let deoxys = new Pokemon("Deoxys", "Legendary", 100, 100, 100);
 
 //ash's pokemons
-let godzilla = new Pokemon("Godzilla", "Plasma", 6, 10, 3);
+let godzilla = new Pokemon("Godzilla", "Plasma", 10, 100, 5);
 let pikachu = new ElectricPokemon("Pikachu", 10, 30, 23);
 let charmander = new FirePokemon("Charmander", 5, 10, 26);
 let torchick = new FirePokemon("Torchick", 20, 20, 20);
 let mudkip = new WaterPokemon("Mudkip", 20, 20, 20);
 
 //red's pokemons
-let geodude = new RockPokemon("Geodude", 6, 10, 3);
+let geodude = new RockPokemon("Geodude", 3, 100, 3);
 let tutubi = new ElectricPokemon("Tutubi", 20, 20, 20);
 
 /* Mini activity
@@ -165,7 +165,6 @@ class Battle {
       this.pokemon1.attack(this.pokemon2);
       if (this.pokemon2.hp > 0) {
         this.pokemon2.attack(this.pokemon1);
-        break;
       }
     }
 
