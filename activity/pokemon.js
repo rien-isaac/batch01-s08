@@ -7,7 +7,9 @@ class Pokemon {
     this.dmg = dmg;
   }
   attack(opponent) {
-    console.log(`${this.name} attack ${opponent.name}!`);
+    console.log(
+      `${this.name} attack ${opponent.name} and deals ${this.dmg} damage.`
+    );
   }
 
   calculateDamage() {

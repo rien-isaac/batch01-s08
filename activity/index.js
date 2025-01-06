@@ -1,6 +1,5 @@
 //spawning pokemons for each trainers
-
-//jonas
+//jonas pokemons
 let rayquaza = new Pokemon("Rayquaza", "Legendary", 100, 100, 100);
 let groudon = new Pokemon("Groudon", "Legendary", 100, 100, 100);
 let kyogre = new Pokemon("Kyogre", "Legendary", 100, 100, 100);
@@ -57,14 +56,6 @@ let redPokemon = red.selectPokemon(0);
 // let battle = new Battle(redPokemon, ashPokemon);
 // battle.startBattle();
 
-let tournament = new Tournament(red.pokemonList, ash.pokemonList);
-tournament.battle();
-
-// console.log(tournament);
-
-// mudkip.powerUp();
-// mudkip.receivedDamage(geodude);
-// geodude.attack(mudkip);
-// mudkip.attack(geodude);
-// let dualBattle = new DualBattle();
-// dualBattle.startDualBattle(ashPokemon, redPokemon, ashPokemon, redPokemon);
+// initiating tournament
+let prelim1 = new Tournament(red.pokemonList, ash.pokemonList);
+prelim1.battle();
