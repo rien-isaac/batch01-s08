@@ -17,6 +17,9 @@ let mudkip = new WaterPokemon("Mudkip", 20, 20, 20);
 //red's pokemons
 let geodude = new RockPokemon("Geodude", 3, 10, 3);
 let tutubi = new ElectricPokemon("Tutubi", 20, 20, 20);
+let flygon = new Pokemon("Flygon", "Dragon", 20, 20, 20);
+let onyx = new RockPokemon("Onyx", 20, 20, 20);
+let gabite = new Pokemon("Gabite", "Dragon", 20, 20, 20);
 
 /* Mini activity
     create a function for recievedDamage() and heal()
@@ -42,15 +45,16 @@ ash.addPokemon(mudkip);
 let red = new Trainer("Red");
 red.addPokemon(geodude);
 red.addPokemon(tutubi);
-red.addPokemon(mudkip);
-red.addPokemon(torchick);
-red.addPokemon(rayquaza);
+red.addPokemon(flygon);
+red.addPokemon(onyx);
+red.addPokemon(gabite);
 
-//selecting trainer's pokemon
+//selecting trainer's pokemon for single battle
 let ashPokemon = ash.selectPokemon(2);
 let redPokemon = red.selectPokemon(0);
 
-let battle = new Battle(redPokemon, ashPokemon);
+//initiating single battle
+// let battle = new Battle(redPokemon, ashPokemon);
 // battle.startBattle();
 
 let tournament = new Tournament(red.pokemonList, ash.pokemonList);
