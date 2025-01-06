@@ -109,6 +109,8 @@ class Trainer {
   }
 }
 
+//spawning pokemons for each trainers
+
 //jonas
 let rayquaza = new Pokemon("Rayquaza", "Legendary", 100, 100, 100);
 let groudon = new Pokemon("Groudon", "Legendary", 100, 100, 100);
@@ -133,6 +135,7 @@ let tutubi = new ElectricPokemon("Tutubi", 20, 20, 20);
     ss your code and your results on your chatbox
 */
 
+//adding pokemons to their respective trainers
 let jonas = new Trainer("Jonas");
 jonas.addPokemon(rayquaza);
 jonas.addPokemon(groudon);
@@ -176,54 +179,41 @@ class Battle {
   }
 }
 
-class DualBattle {
-  constructor() {
-    this.pokemons = [];
+class Tournament {
+  constructor(team1, team2) {
+    this.team1 = team1;
+    this.team2 = team2;
   }
 
-  startDualBattle(pokemon1, pokemon2, pokemon3, pokemon4) {
-    this.pokemons.push(pokemon1);
-    this.pokemons.push(pokemon2);
-    this.pokemons.push(pokemon3);
-    this.pokemons.push(pokemon4);
+  battle() {
+    this.team1.forEach((pokemon, index) => {
+      console.log(`${this.team1[index].name}`);
 
-    console.log(
-      `The Dual Battle ${this.pokemons[0].name} and ${this.pokemons[1].name} VS ${this.pokemons[2].name} and ${this.pokemons[3].name}`
-    );
+      while (this.team1[index].hp > 0) {
+        let selector = 0;
+        this.team1[index].attack(this.team2[selector]);
 
-    while (
-      this.pokemons[0].hp > 0 ||
-      (this.pokemons[1].hp > 0 && this.pokemons[2].hp) ||
-      this.pokemons[3].hp > 0
-    ) {
-      this.pokemons[0].attack(this.pokemons[Math.random() + 2]);
-      this.pokemons[1].attack(this.pokemons[Math.random() + 2]);
-
-      if (this.pokemons[3].hp > 0 || this.pokemons[4].hp > 0) {
-        this.pokemons[3].attack(this.pokemons[Math.random()]);
-        this.pokemons[4].attack(this.pokemons[Math.random()]);
-        break;
+        if (this.team2[selector].hp > 0) {
+          this.team2[selector].attack(this.team1[index]);
+        } else {
+          selector += 1;
+        }
       }
-
-      if (this.pokemons[0].hp <= 0 && this.pokemons[1].hp <= 0) {
-        console.log(
-          `Team 1's ${this.pokemons[0].name} and ${this.pokemons[1].name} Wins`
-        );
-      } else {
-        console.log(
-          `Team 2's ${this.pokemons[2].name} and ${this.pokemons[3].name} Wins`
-        );
-      }
-    }
+    });
   }
 }
 
-//trainers pokemon
-let ashPokemon = ash.selectPokemon(0);
+//selecting trainer's pokemon
+let ashPokemon = ash.selectPokemon(2);
 let redPokemon = red.selectPokemon(0);
 
-let battle = new Battle(ashPokemon, redPokemon);
+let battle = new Battle(redPokemon, ashPokemon);
 battle.startBattle();
+
+let tournament = new Tournament(ash.pokemonList, red.pokemonList);
+tournament.battle();
+
+// console.log(tournament);
 
 // mudkip.powerUp();
 // mudkip.receivedDamage(geodude);
