@@ -11,7 +11,7 @@ class Pokemon {
   }
 
   calculateDamage() {
-    return Math.floor(Math.random() * (5 - 10)) + 5;
+    return Math.floor(Math.random() * 18);
   }
 
   receivedDamage(opponent) {
@@ -152,6 +152,10 @@ ash.addPokemon(mudkip);
 
 let red = new Trainer("Red");
 red.addPokemon(geodude);
+red.addPokemon(tutubi);
+red.addPokemon(mudkip);
+red.addPokemon(torchick);
+red.addPokemon(rayquaza);
 
 class Battle {
   constructor(pokemon1, pokemon2) {
@@ -186,11 +190,13 @@ class Tournament {
   }
 
   battle() {
-    this.team1.forEach((pokemon, team1Index) => {
-      console.log(`${this.team1[team1Index].name}`);
+    //selects first pokemon of trainer 1
+    this.team1.forEach((pokemon1, team1Index) => {
+      console.log(`Trainer 1 selects ${this.team1[team1Index].name}`);
 
+      //selects pokemons of trainer 2
       this.team2.forEach((pokemon2, team2Index) => {
-        console.log(`${this.team2[team2Index].name}`);
+        console.log(`Trainer 2 selects ${this.team2[team2Index].name}`);
 
         while (this.team1[team1Index].hp > 0 && this.team2[team2Index].hp > 0) {
           this.team1[team1Index].attack(this.team2[team2Index]);
