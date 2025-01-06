@@ -119,14 +119,14 @@ let arceus = new Pokemon("Arceus", "Legendary", 100, 100, 100);
 let deoxys = new Pokemon("Deoxys", "Legendary", 100, 100, 100);
 
 //ash's pokemons
-let godzilla = new Pokemon("Godzilla", "Plasma", 10, 100, 5);
+let godzilla = new Pokemon("Godzilla", "Plasma", 10, 10, 5);
 let pikachu = new ElectricPokemon("Pikachu", 10, 30, 23);
 let charmander = new FirePokemon("Charmander", 5, 10, 26);
 let torchick = new FirePokemon("Torchick", 20, 20, 20);
 let mudkip = new WaterPokemon("Mudkip", 20, 20, 20);
 
 //red's pokemons
-let geodude = new RockPokemon("Geodude", 3, 100, 3);
+let geodude = new RockPokemon("Geodude", 3, 10, 3);
 let tutubi = new ElectricPokemon("Tutubi", 20, 20, 20);
 
 /* Mini activity
@@ -186,19 +186,25 @@ class Tournament {
   }
 
   battle() {
-    this.team1.forEach((pokemon, index) => {
-      console.log(`${this.team1[index].name}`);
+    this.team1.forEach((pokemon, team1Index) => {
+      console.log(`${this.team1[team1Index].name}`);
 
-      while (this.team1[index].hp > 0) {
-        let selector = 0;
-        this.team1[index].attack(this.team2[selector]);
+      this.team2.forEach((pokemon2, team2Index) => {
+        console.log(`${this.team2[team2Index].name}`);
 
-        if (this.team2[selector].hp > 0) {
-          this.team2[selector].attack(this.team1[index]);
-        } else {
-          selector += 1;
+        while (this.team1[team1Index].hp > 0 && this.team2[team2Index].hp > 0) {
+          this.team1[team1Index].attack(this.team2[team2Index]);
+          if (this.team2[team2Index].hp > 0) {
+            this.team2[team2Index].attack(this.team1[team1Index]);
+          }
+
+          if (this.team1[team1Index].hp <= 0) {
+            console.log(`${this.team1[team1Index].name} has lost the battle.`);
+          } else {
+            console.log(`${this.team2[team2Index].name} has lost the battle.`);
+          }
         }
-      }
+      });
     });
   }
 }
@@ -208,9 +214,9 @@ let ashPokemon = ash.selectPokemon(2);
 let redPokemon = red.selectPokemon(0);
 
 let battle = new Battle(redPokemon, ashPokemon);
-battle.startBattle();
+// battle.startBattle();
 
-let tournament = new Tournament(ash.pokemonList, red.pokemonList);
+let tournament = new Tournament(red.pokemonList, ash.pokemonList);
 tournament.battle();
 
 // console.log(tournament);
