@@ -11,11 +11,11 @@ class Pokemon {
   }
 
   calculateDamage() {
-    return (this.dmg += 2);
+    return Math.floor(Math.random() * (5 - 10)) + 5;
   }
 
   receivedDamage(opponent) {
-    this.hp -= opponent.dmg;
+    this.hp -= opponent.calculateDamage();
     if (this.hp <= 0) {
       console.log(`${this.name} has fainted.`);
       //   console.log(`${opponent.name} level up ${opponent.level + 1}`);
@@ -31,7 +31,9 @@ class Pokemon {
 
   powerUp() {
     this.dmg += 16;
-    console.log(`${this.name} uses power up and increase its damage by 16.`);
+    console.log(
+      `${this.name} uses power up and increase its damage ${this.dmg} (+16)`
+    );
   }
 }
 
@@ -228,5 +230,5 @@ battle.startBattle();
 // mudkip.receivedDamage(geodude);
 // geodude.attack(mudkip);
 // mudkip.attack(geodude);
-let dualBattle = new DualBattle();
-dualBattle.startDualBattle(ashPokemon, redPokemon, ashPokemon, redPokemon);
+// let dualBattle = new DualBattle();
+// dualBattle.startDualBattle(ashPokemon, redPokemon, ashPokemon, redPokemon);
