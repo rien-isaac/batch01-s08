@@ -9,13 +9,15 @@ class Pokemon {
   }
   attack(opponent) {
     console.log(
-      `${this.name} attack ${opponent.name} and deals ${this.dmg} damage.`
+      `${this.name} attack ${
+        opponent.name
+      } and deals ${this.calculateDamage()} DAMAGE.`
     );
     opponent.receivedDamage(opponent);
   }
 
   calculateDamage() {
-    return Math.floor(Math.random() * this.dmg);
+    return Math.floor(Math.random() * this.dmg + this.dmg);
   }
 
   receivedDamage(opponent) {
@@ -33,14 +35,14 @@ class Pokemon {
     this.hp += 10;
     this.def += 10;
     console.log(
-      `${this.name} use heal and gained 10 hp. ${this.name}'s Current HP: ${this.hp} and gain temporary Defense Boost.`
+      `${this.name} use HEAL and gained 10 hp. ${this.name}'s Current HP: ${this.hp} and gain temporary DEFENSE BOOST.`
     );
   }
 
   powerUp() {
     this.dmg += 16;
     console.log(
-      `${this.name} uses power up and increase its damage ${this.dmg} (+16)`
+      `${this.name} uses POWER UP and increase its DAMAGE ${this.dmg} (+16)`
     );
   }
 }

@@ -2,6 +2,7 @@ class Tournament {
   constructor(trainer1, trainer2) {
     this.trainer1 = trainer1;
     this.trainer2 = trainer2;
+    this.winner;
   }
 
   battle() {
@@ -65,6 +66,7 @@ class Tournament {
               //end for healing
 
               if (this.trainer1.pokemonList[selector1].hp <= 0) {
+                console.log(`********`);
                 console.log(
                   `${this.trainer2.name}'s ${this.trainer2.pokemonList[selector2].name} has won the battle.`
                 );
@@ -72,6 +74,7 @@ class Tournament {
                 //set team 2 as the winner...
                 break;
               } else {
+                console.log(`********`);
                 console.log(
                   `${this.trainer1.name}'s ${this.trainer1.pokemonList[selector1].name} has won the battle.`
                 );
@@ -85,8 +88,6 @@ class Tournament {
         }
       }
     }
-
-    let winner;
     let teamOneTotalHp = 0;
     let teamTwoTotalHp = 0;
 
@@ -103,16 +104,18 @@ class Tournament {
     }
 
     if (teamOneTotalHp > teamTwoTotalHp) {
-      winner = this.trainer1;
+      this.winner = this.trainer1;
+      // console.log(this.trainer1);
       console.log(`${this.trainer1.name} is the winner.`);
       console.log(`********`);
     } else {
-      winner = this.trainer2;
+      this.winner = this.trainer2;
+      // console.log(this.trainer2);
       console.log(`${this.trainer2.name} is the winner.`);
       console.log(`********`);
     }
     // console.log(`Score: Team 1: ${teamOneTotalHp}, Team 2: ${teamTwoTotalHp}`);
 
-    return winner;
+    // console.log(this.winner);
   }
 }

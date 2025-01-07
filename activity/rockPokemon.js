@@ -6,7 +6,7 @@ class RockPokemon extends Pokemon {
   //polymorphism; override attack() method for fire pokemon
   attack(opponent) {
     console.log(
-      `${this.name} uses Earthquake on ${opponent.name} and deals ${this.dmg} damage.`
+      `${this.name} uses Earthquake on ${opponent.name} and deals ${this.dmg} DAMAGE.`
     );
 
     opponent.receivedDamage(opponent);

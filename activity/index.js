@@ -7,18 +7,32 @@ let arceus = new Pokemon("Arceus", "Legendary", 10, 10, 100);
 let deoxys = new Pokemon("Deoxys", "Legendary", 18, 18, 100);
 
 //ash's pokemons
-let godzilla = new Pokemon("Godzilla", "Plasma", 13, 13, 5);
+let godzilla = new Pokemon("Godzilla", "Plasma", 13, 13, 3);
 let pikachu = new ElectricPokemon("Pikachu", 12, 12, 5);
-let charmander = new FirePokemon("Charmander", 15, 15, 5);
-let torchick = new FirePokemon("Torchick", 17, 17, 5);
-let mudkip = new WaterPokemon("Mudkip", 10, 10, 5);
+let charmander = new FirePokemon("Charmander", 15, 15, 7);
+let torchick = new FirePokemon("Torchick", 17, 17, 4);
+let mudkip = new WaterPokemon("Mudkip", 10, 10, 6);
 
 //red's pokemons
-let geodude = new RockPokemon("Geodude", 17, 17, 5);
-let electrobuzz = new ElectricPokemon("Electrobuzz", 18, 18, 5);
+let geodude = new RockPokemon("Geodude", 17, 17, 8);
+let electrobuzz = new ElectricPokemon("Electrobuzz", 18, 18, 3);
 let flygon = new Pokemon("Flygon", "Dragon", 11, 11, 5);
-let onyx = new RockPokemon("Onyx", 14, 14, 5);
-let gabite = new Pokemon("Gabite", "Dragon", 15, 15, 5);
+let onyx = new RockPokemon("Onyx", 14, 14, 7);
+let gabite = new Pokemon("Gabite", "Dragon", 15, 15, 2);
+
+//blue's pokemon
+let absol = new Pokemon("Absol", "Bug", 3, 8, 4);
+let lotad = new WaterPokemon("Lotad", 5, 19, 6);
+let wingul = new WaterPokemon("Wingul", 12, 18, 11);
+let ralts = new Pokemon("Ralts", "Normal", 5, 7, 9);
+let ratata = new Pokemon("Ratata", "Normal", 6, 3, 9);
+
+//wabapet's pokemon
+let numel = new Pokemon("Numel", "Normal", 8, 9, 10);
+let oddish = new Pokemon("Oddish", "Grass", 6, 7, 8);
+let psyduck = new WaterPokemon("Psyduck", 12, 15, 16);
+let spoink = new Pokemon("Spoink", "Normal", 12, 15, 18);
+let vulpix = new FirePokemon("Vulpix", 16, 18, 20);
 
 /* Mini activity
     create a function for recievedDamage() and heal()
@@ -49,18 +63,18 @@ red.addPokemon(onyx);
 red.addPokemon(gabite);
 
 let blue = new Trainer("Blue");
-blue.addPokemon(geodude);
-blue.addPokemon(electrobuzz);
-blue.addPokemon(flygon);
-blue.addPokemon(onyx);
-blue.addPokemon(gabite);
+blue.addPokemon(ratata);
+blue.addPokemon(ralts);
+blue.addPokemon(wingul);
+blue.addPokemon(lotad);
+blue.addPokemon(absol);
 
 let wabapet = new Trainer("Wabapet");
-wabapet.addPokemon(geodude);
-wabapet.addPokemon(electrobuzz);
-wabapet.addPokemon(flygon);
-wabapet.addPokemon(onyx);
-wabapet.addPokemon(gabite);
+wabapet.addPokemon(spoink);
+wabapet.addPokemon(vulpix);
+wabapet.addPokemon(psyduck);
+wabapet.addPokemon(oddish);
+wabapet.addPokemon(numel);
 
 //selecting trainer's pokemon for single battle
 let ashPokemon = ash.selectPokemon(2);
@@ -73,13 +87,13 @@ let redPokemon = red.selectPokemon(0);
 // initiating tournament
 let prelim1 = new Tournament(red, wabapet);
 prelim1.battle();
+console.log(prelim1.winner);
 
 let prelim2 = new Tournament(blue, ash);
 prelim2.battle();
+console.log(prelim2.winner);
 
-// console.log(prelim1.battle());
+let semiFinals = new Tournament(prelim1.winner, prelim2.winner);
+semiFinals.battle();
 
-// let semiFinals = new Tournament(prelim1.battle(), prelim2.battle());
-// semiFinals.battle();
-
-// console.log(semiFinals.battle());
+console.log(semiFinals.winner);

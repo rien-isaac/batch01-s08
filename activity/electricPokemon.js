@@ -6,7 +6,9 @@ class ElectricPokemon extends Pokemon {
   //polymorphism; override attack() method for fire pokemon
   attack(opponent) {
     console.log(
-      `${this.name} uses Thunderbolt on ${opponent.name} and deals ${this.dmg} damage.`
+      `${this.name} uses Thunderbolt on ${opponent.name} and deals ${
+        this.calculateDamage() * 2
+      } DAMAGE.`
     );
     opponent.receivedDamage(opponent);
   }
