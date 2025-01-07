@@ -57,8 +57,8 @@ class Tournament {
               }
 
               if (
-                this.trainer2.pokemonList[selector2].hp < 6 &&
-                this.trainer2.pokemonList[selector2].hp > 2
+                this.trainer2.pokemonList[selector2].hp < 10 &&
+                this.trainer2.pokemonList[selector2].hp > 1
               ) {
                 this.trainer2.pokemonList[selector2].heal();
               }
@@ -79,7 +79,7 @@ class Tournament {
                 console.log(`********`);
                 console.log(
                   `%c${this.trainer1.name}`,
-                  `color: #00ff00`,
+                  `color: #ee4b2b`,
                   `'s ${this.trainer1.pokemonList[selector1].name} has won the battle.`
                 );
 

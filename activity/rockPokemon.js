@@ -5,12 +5,22 @@ class RockPokemon extends Pokemon {
   }
   //polymorphism; override attack() method for fire pokemon
   attack(opponent) {
-    console.log(
-      `${this.name} uses Earthquake on ${opponent.name} and deals ${
-        this.calculateDamage() * 2
-      } DAMAGE.`
-    );
+    let multiplier = Math.floor(Math.random() * 11);
 
-    opponent.receivedDamage(opponent);
+    if (multiplier % 2 == 0) {
+      console.log(
+        `${this.name} uses Earthquake on ${
+          opponent.name
+        } and deals ${this.calculateDamage()} DAMAGE.`
+      );
+      opponent.receivedDamage(opponent);
+    } else {
+      console.log(
+        `${this.name} uses Earthquake on ${opponent.name} and deals ${
+          this.calculateDamage() * multiplier
+        } DAMAGE.`
+      );
+      opponent.receivedDamage(opponent);
+    }
   }
 }

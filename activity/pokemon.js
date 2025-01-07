@@ -8,12 +8,23 @@ class Pokemon {
     this.def = 0;
   }
   attack(opponent) {
-    console.log(
-      `${this.name} attack ${
-        opponent.name
-      } and deals ${this.calculateDamage()} DAMAGE.`
-    );
-    opponent.receivedDamage(opponent);
+    let multiplier = Math.floor(Math.random() * 11);
+
+    if (multiplier % 2 == 0) {
+      console.log(
+        `${this.name} attack ${
+          opponent.name
+        } and deals ${this.calculateDamage()} DAMAGE.`
+      );
+      opponent.receivedDamage(opponent);
+    } else {
+      console.log(
+        `CRITICAL HIT: ${this.name} attack ${opponent.name} and deals a ${
+          this.calculateDamage() * multiplier
+        } DAMAGE.`
+      );
+      opponent.receivedDamage(opponent);
+    }
   }
 
   calculateDamage() {

@@ -91,38 +91,15 @@ console.log(prelim1.winner);
 
 let prelim2 = new Tournament(blue, ash);
 prelim2.battle();
-console.log(prelim2.winner);
+// console.log(prelim2.winner);
 
 let semiFinals = new Tournament(prelim1.winner, prelim2.winner);
 semiFinals.battle();
-console.log(semiFinals.winner);
+// console.log(semiFinals.winner);
 
 let finals = new Tournament(semiFinals.winner, jonas);
 finals.battle();
-console.log(finals.winner);
+// console.log(finals.winner);
 
-//for testing
-// console.log(
-//   `%cAPOY`,
-//   `color: #fff; background: #FFA500; padding: .2rem; border-radius: .2rem; margin: .2rem .3rem;`
-// );
-
-// console.log(
-//   `%cKURINTI`,
-//   `color: #0f0f0f; background: #ffff00; padding: .2rem; border-radius: .2rem; margin: .2rem .3rem;`
-// );
-
-// console.log(
-//   `%cTOBIG`,
-//   `color: #fff; background: #0000FF; padding: .2rem; border-radius: .2rem; margin: .2rem .3rem;`
-// );
-
-// console.log(
-//   `%cGOODSHIT`,
-//   `color: #fff; background: #ae8b0c; padding: .2rem; border-radius: .2rem; margin: .2rem .3rem;`
-// );
-
-// console.log(
-//   `%cABNORMAL`,
-//   `color: #fff; background: #808080; padding: .2rem; border-radius: .2rem; margin: .2rem .3rem;`
-// );
+console.log(`The Champion in this tournament is ${finals.winner.name}!`);
+finals.winner.showPokemon();
