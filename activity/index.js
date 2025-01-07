@@ -1,24 +1,24 @@
 //spawning pokemons for each trainers
 //jonas pokemons
-let rayquaza = new Pokemon("Rayquaza", "Legendary", 100, 100, 100);
-let groudon = new Pokemon("Groudon", "Legendary", 100, 100, 100);
-let kyogre = new Pokemon("Kyogre", "Legendary", 100, 100, 100);
-let arceus = new Pokemon("Arceus", "Legendary", 100, 100, 100);
-let deoxys = new Pokemon("Deoxys", "Legendary", 100, 100, 100);
+let rayquaza = new Pokemon("Rayquaza", "Legendary", 19, 19, 100);
+let groudon = new Pokemon("Groudon", "Legendary", 11, 11, 100);
+let kyogre = new Pokemon("Kyogre", "Legendary", 17, 17, 100);
+let arceus = new Pokemon("Arceus", "Legendary", 10, 10, 100);
+let deoxys = new Pokemon("Deoxys", "Legendary", 18, 18, 100);
 
 //ash's pokemons
-let godzilla = new Pokemon("Godzilla", "Plasma", 10, 10, 5);
-let pikachu = new ElectricPokemon("Pikachu", 10, 10, 5);
-let charmander = new FirePokemon("Charmander", 10, 10, 5);
-let torchick = new FirePokemon("Torchick", 10, 10, 5);
+let godzilla = new Pokemon("Godzilla", "Plasma", 13, 13, 5);
+let pikachu = new ElectricPokemon("Pikachu", 12, 12, 5);
+let charmander = new FirePokemon("Charmander", 15, 15, 5);
+let torchick = new FirePokemon("Torchick", 17, 17, 5);
 let mudkip = new WaterPokemon("Mudkip", 10, 10, 5);
 
 //red's pokemons
-let geodude = new RockPokemon("Geodude", 10, 10, 5);
-let electrobuzz = new ElectricPokemon("Electrobuzz", 10, 10, 5);
-let flygon = new Pokemon("Flygon", "Dragon", 10, 10, 5);
-let onyx = new RockPokemon("Onyx", 10, 10, 5);
-let gabite = new Pokemon("Gabite", "Dragon", 10, 10, 5);
+let geodude = new RockPokemon("Geodude", 17, 17, 5);
+let electrobuzz = new ElectricPokemon("Electrobuzz", 18, 18, 5);
+let flygon = new Pokemon("Flygon", "Dragon", 11, 11, 5);
+let onyx = new RockPokemon("Onyx", 14, 14, 5);
+let gabite = new Pokemon("Gabite", "Dragon", 15, 15, 5);
 
 /* Mini activity
     create a function for recievedDamage() and heal()
@@ -76,6 +76,3 @@ prelim1.battle();
 
 let prelim2 = new Tournament(blue, wabapet);
 prelim2.battle();
-
-let semiFinals = new Tournament();
-semiFinals.battle();
