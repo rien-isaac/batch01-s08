@@ -8,16 +8,20 @@ class Pokemon {
   }
   attack(opponent) {
     console.log(
-      `${this.name} attack ${opponent.name} and deals ${this.dmg} damage.`
+      `${this.name} attack ${
+        opponent.name
+      } and deals ${this.calculateDamage()} damage.`
     );
+    opponent.receivedDamage(opponent);
   }
 
   calculateDamage() {
-    return Math.floor(Math.random() * 18);
+    return Math.floor(Math.random() * this.dmg);
   }
 
   receivedDamage(opponent) {
-    this.hp -= opponent.calculateDamage();
+    // this.hp -= opponent.calculateDamage();
+    this.hp -= opponent.dmg;
     if (this.hp <= 0) {
       console.log(`${this.name} has fainted.`);
       //   console.log(`${opponent.name} level up ${opponent.level + 1}`);

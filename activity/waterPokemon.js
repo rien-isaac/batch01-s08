@@ -8,7 +8,7 @@ class WaterPokemon extends Pokemon {
     console.log(
       `${this.name} uses Hydro Pump on ${opponent.name} and deals ${this.dmg} damage.`
     );
-    opponent.receivedDamage(opponent);
+    // opponent.receivedDamage(opponent);
   }
 
   heal() {

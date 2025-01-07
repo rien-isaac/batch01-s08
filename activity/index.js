@@ -8,17 +8,17 @@ let deoxys = new Pokemon("Deoxys", "Legendary", 100, 100, 100);
 
 //ash's pokemons
 let godzilla = new Pokemon("Godzilla", "Plasma", 10, 10, 5);
-let pikachu = new ElectricPokemon("Pikachu", 10, 30, 23);
-let charmander = new FirePokemon("Charmander", 5, 10, 26);
-let torchick = new FirePokemon("Torchick", 20, 20, 20);
-let mudkip = new WaterPokemon("Mudkip", 20, 20, 20);
+let pikachu = new ElectricPokemon("Pikachu", 10, 10, 5);
+let charmander = new FirePokemon("Charmander", 10, 10, 5);
+let torchick = new FirePokemon("Torchick", 10, 10, 5);
+let mudkip = new WaterPokemon("Mudkip", 10, 10, 5);
 
 //red's pokemons
-let geodude = new RockPokemon("Geodude", 3, 10, 3);
-let tutubi = new ElectricPokemon("Tutubi", 20, 20, 20);
-let flygon = new Pokemon("Flygon", "Dragon", 20, 20, 20);
-let onyx = new RockPokemon("Onyx", 20, 20, 20);
-let gabite = new Pokemon("Gabite", "Dragon", 20, 20, 20);
+let geodude = new RockPokemon("Geodude", 10, 10, 5);
+let electrobuzz = new ElectricPokemon("Electrobuzz", 10, 10, 5);
+let flygon = new Pokemon("Flygon", "Dragon", 10, 10, 5);
+let onyx = new RockPokemon("Onyx", 10, 10, 5);
+let gabite = new Pokemon("Gabite", "Dragon", 10, 10, 5);
 
 /* Mini activity
     create a function for recievedDamage() and heal()
@@ -43,10 +43,24 @@ ash.addPokemon(mudkip);
 
 let red = new Trainer("Red");
 red.addPokemon(geodude);
-red.addPokemon(tutubi);
+red.addPokemon(electrobuzz);
 red.addPokemon(flygon);
 red.addPokemon(onyx);
 red.addPokemon(gabite);
+
+let blue = new Trainer("Blue");
+blue.addPokemon(geodude);
+blue.addPokemon(electrobuzz);
+blue.addPokemon(flygon);
+blue.addPokemon(onyx);
+blue.addPokemon(gabite);
+
+let wabapet = new Trainer("Wabapet");
+wabapet.addPokemon(geodude);
+wabapet.addPokemon(electrobuzz);
+wabapet.addPokemon(flygon);
+wabapet.addPokemon(onyx);
+wabapet.addPokemon(gabite);
 
 //selecting trainer's pokemon for single battle
 let ashPokemon = ash.selectPokemon(2);
@@ -57,5 +71,11 @@ let redPokemon = red.selectPokemon(0);
 // battle.startBattle();
 
 // initiating tournament
-let prelim1 = new Tournament(red.pokemonList, ash.pokemonList);
+let prelim1 = new Tournament(red, ash);
 prelim1.battle();
+
+let prelim2 = new Tournament(blue, wabapet);
+prelim2.battle();
+
+let semiFinals = new Tournament();
+semiFinals.battle();
