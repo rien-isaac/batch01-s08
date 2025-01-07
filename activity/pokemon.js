@@ -5,12 +5,11 @@ class Pokemon {
     this.level = level;
     this.hp = hp;
     this.dmg = dmg;
+    this.def = 0;
   }
   attack(opponent) {
     console.log(
-      `${this.name} attack ${
-        opponent.name
-      } and deals ${this.calculateDamage()} damage.`
+      `${this.name} attack ${opponent.name} and deals ${this.dmg} damage.`
     );
     opponent.receivedDamage(opponent);
   }
@@ -21,7 +20,7 @@ class Pokemon {
 
   receivedDamage(opponent) {
     // this.hp -= opponent.calculateDamage();
-    this.hp -= opponent.dmg;
+    this.hp -= opponent.dmg - this.def;
     if (this.hp <= 0) {
       console.log(`${this.name} has fainted.`);
       //   console.log(`${opponent.name} level up ${opponent.level + 1}`);
@@ -32,7 +31,10 @@ class Pokemon {
 
   heal() {
     this.hp += 10;
-    console.log(`${this.name} has 10 HP! Current HP: ${this.hp}`);
+    this.def += 10;
+    console.log(
+      `${this.name} use heal and gained 10 hp. ${this.name}'s Current HP: ${this.hp} and gain temporary Defense Boost.`
+    );
   }
 
   powerUp() {

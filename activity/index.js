@@ -71,8 +71,15 @@ let redPokemon = red.selectPokemon(0);
 // battle.startBattle();
 
 // initiating tournament
-let prelim1 = new Tournament(red, ash);
+let prelim1 = new Tournament(red, wabapet);
 prelim1.battle();
 
-let prelim2 = new Tournament(blue, wabapet);
+let prelim2 = new Tournament(blue, ash);
 prelim2.battle();
+
+// console.log(prelim1.battle());
+
+// let semiFinals = new Tournament(prelim1.battle(), prelim2.battle());
+// semiFinals.battle();
+
+// console.log(semiFinals.battle());

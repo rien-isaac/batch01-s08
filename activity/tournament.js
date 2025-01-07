@@ -39,11 +39,30 @@ class Tournament {
               this.trainer1.pokemonList[selector1].attack(
                 this.trainer2.pokemonList[selector2]
               );
+
               if (this.trainer2.pokemonList[selector2].hp > 0) {
                 this.trainer2.pokemonList[selector2].attack(
                   this.trainer1.pokemonList[selector1]
                 );
               }
+
+              //start for healing
+
+              if (
+                this.trainer1.pokemonList[selector1].hp < 6 &&
+                this.trainer1.pokemonList[selector1].hp > 2
+              ) {
+                this.trainer1.pokemonList[selector1].heal();
+              }
+
+              if (
+                this.trainer2.pokemonList[selector2].hp < 6 &&
+                this.trainer2.pokemonList[selector2].hp > 2
+              ) {
+                this.trainer2.pokemonList[selector2].heal();
+              }
+
+              //end for healing
 
               if (this.trainer1.pokemonList[selector1].hp <= 0) {
                 console.log(
@@ -86,14 +105,14 @@ class Tournament {
     if (teamOneTotalHp > teamTwoTotalHp) {
       winner = this.trainer1;
       console.log(`${this.trainer1.name} is the winner.`);
-
       console.log(`********`);
     } else {
       winner = this.trainer2;
       console.log(`${this.trainer2.name} is the winner.`);
-
       console.log(`********`);
     }
     // console.log(`Score: Team 1: ${teamOneTotalHp}, Team 2: ${teamTwoTotalHp}`);
+
+    return winner;
   }
 }
