@@ -1,10 +1,10 @@
 //spawning pokemons for each trainers
 //jonas pokemons
-let rayquaza = new Pokemon("Rayquaza", "Legendary", 19, 19, 100);
-let groudon = new Pokemon("Groudon", "Legendary", 11, 11, 100);
-let kyogre = new Pokemon("Kyogre", "Legendary", 17, 17, 100);
-let arceus = new Pokemon("Arceus", "Legendary", 10, 10, 100);
-let deoxys = new Pokemon("Deoxys", "Legendary", 18, 18, 100);
+let rayquaza = new Pokemon("Rayquaza", "Legendary", 100, 100, 100);
+let groudon = new Pokemon("Groudon", "Legendary", 100, 100, 100);
+let kyogre = new Pokemon("Kyogre", "Legendary", 100, 100, 100);
+let arceus = new Pokemon("Arceus", "Legendary", 100, 100, 100);
+let deoxys = new Pokemon("Deoxys", "Legendary", 100, 100, 100);
 
 //ash's pokemons
 let godzilla = new Pokemon("Godzilla", "Plasma", 13, 13, 3);
@@ -95,5 +95,34 @@ console.log(prelim2.winner);
 
 let semiFinals = new Tournament(prelim1.winner, prelim2.winner);
 semiFinals.battle();
-
 console.log(semiFinals.winner);
+
+let finals = new Tournament(semiFinals.winner, jonas);
+finals.battle();
+console.log(finals.winner);
+
+//for testing
+// console.log(
+//   `%cAPOY`,
+//   `color: #fff; background: #FFA500; padding: .2rem; border-radius: .2rem; margin: .2rem .3rem;`
+// );
+
+// console.log(
+//   `%cKURINTI`,
+//   `color: #0f0f0f; background: #ffff00; padding: .2rem; border-radius: .2rem; margin: .2rem .3rem;`
+// );
+
+// console.log(
+//   `%cTOBIG`,
+//   `color: #fff; background: #0000FF; padding: .2rem; border-radius: .2rem; margin: .2rem .3rem;`
+// );
+
+// console.log(
+//   `%cGOODSHIT`,
+//   `color: #fff; background: #ae8b0c; padding: .2rem; border-radius: .2rem; margin: .2rem .3rem;`
+// );
+
+// console.log(
+//   `%cABNORMAL`,
+//   `color: #fff; background: #808080; padding: .2rem; border-radius: .2rem; margin: .2rem .3rem;`
+// );

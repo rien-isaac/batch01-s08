@@ -68,7 +68,9 @@ class Tournament {
               if (this.trainer1.pokemonList[selector1].hp <= 0) {
                 console.log(`********`);
                 console.log(
-                  `${this.trainer2.name}'s ${this.trainer2.pokemonList[selector2].name} has won the battle.`
+                  `%c${this.trainer2.name}`,
+                  `color: #0000ff`,
+                  `'s${this.trainer2.pokemonList[selector2].name} has won the battle.`
                 );
                 console.log(`********`);
                 //set team 2 as the winner...
@@ -76,7 +78,9 @@ class Tournament {
               } else {
                 console.log(`********`);
                 console.log(
-                  `${this.trainer1.name}'s ${this.trainer1.pokemonList[selector1].name} has won the battle.`
+                  `%c${this.trainer1.name}`,
+                  `color: #00ff00`,
+                  `'s ${this.trainer1.pokemonList[selector1].name} has won the battle.`
                 );
 
                 console.log(`********`);
@@ -106,16 +110,13 @@ class Tournament {
     if (teamOneTotalHp > teamTwoTotalHp) {
       this.winner = this.trainer1;
       // console.log(this.trainer1);
-      console.log(`${this.trainer1.name} is the winner.`);
+      console.log(`%c${this.trainer1.name} is the winner.`, `color: #00ff00`);
       console.log(`********`);
     } else {
       this.winner = this.trainer2;
       // console.log(this.trainer2);
-      console.log(`${this.trainer2.name} is the winner.`);
+      console.log(`%c${this.trainer2.name} is the winner.`, `color: #0000ff`);
       console.log(`********`);
     }
-    // console.log(`Score: Team 1: ${teamOneTotalHp}, Team 2: ${teamTwoTotalHp}`);
-
-    // console.log(this.winner);
   }
 }
