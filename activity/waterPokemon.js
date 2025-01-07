@@ -6,9 +6,11 @@ class WaterPokemon extends Pokemon {
   //polymorphism; override attack() method for fire pokemon
   attack(opponent) {
     console.log(
-      `${this.name} uses Hydro Pump on ${opponent.name} and deals ${this.dmg} DAMAGE.`
+      `${this.name} uses Hydro Pump on ${opponent.name} and deals ${
+        this.calculateDamage() * 2
+      } DAMAGE.`
     );
-    // opponent.receivedDamage(opponent);
+    opponent.receivedDamage(opponent);
   }
 
   heal() {
