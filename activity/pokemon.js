@@ -12,14 +12,14 @@ class Pokemon {
 
     if (multiplier % 2 == 0) {
       console.log(
-        `${this.name} attack ${
+        `⚔ ${this.name} attack ${
           opponent.name
         } and deals ${this.calculateDamage()} DAMAGE.`
       );
       opponent.receivedDamage(opponent);
     } else {
       console.log(
-        `CRITICAL HIT: ${this.name} attack ${opponent.name} and deals a ${
+        ` 💘CRITICAL HIT: ${this.name} attack ${opponent.name} and deals a ${
           this.calculateDamage() * multiplier
         } DAMAGE.`
       );
@@ -35,7 +35,7 @@ class Pokemon {
     // this.hp -= opponent.calculateDamage();
     this.hp -= opponent.dmg - this.def;
     if (this.hp <= 0) {
-      console.log(`${this.name} has fainted.`);
+      console.log(`💀${this.name} has fainted.`);
       //   console.log(`${opponent.name} level up ${opponent.level + 1}`);
     } else {
       console.log(`${this.name} has ${this.hp} HP left.`);
@@ -46,14 +46,14 @@ class Pokemon {
     this.hp += 10;
     this.def += 10;
     console.log(
-      `${this.name} use HEAL and gained 10 hp. ${this.name}'s Current HP: ${this.hp} and gain temporary DEFENSE BOOST.`
+      `${this.name} use 💖HEAL and gained 10 hp. ${this.name}'s Current HP: ${this.hp} and gain temporary 🛡🔼DEFENSE BOOST.`
     );
   }
 
   powerUp() {
     this.dmg += 16;
     console.log(
-      `${this.name} uses POWER UP and increase its DAMAGE ${this.dmg} (+16)`
+      `${this.name} uses 💪🔼POWER UP and increase its 💥DAMAGE ${this.dmg} (+16)`
     );
   }
 }

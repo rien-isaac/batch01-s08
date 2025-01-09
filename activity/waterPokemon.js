@@ -9,14 +9,14 @@ class WaterPokemon extends Pokemon {
 
     if (multiplier % 2 == 0) {
       console.log(
-        `${this.name} uses Hydro Pump on ${
+        `${this.name} uses 💦Hydro Pump on ${
           opponent.name
         } and deals ${this.calculateDamage()} DAMAGE.`
       );
       opponent.receivedDamage(opponent);
     } else {
       console.log(
-        `${this.name} uses Hydro Pump on ${opponent.name} and deals ${
+        `${this.name} uses 💦Hydro Pump on ${opponent.name} and deals ${
           this.calculateDamage() * multiplier
         } DAMAGE.`
       );
@@ -27,7 +27,7 @@ class WaterPokemon extends Pokemon {
   heal() {
     this.hp += 16;
     console.log(
-      `${this.name} regained 10 HP with the blessing of water! Current HP: ${this.hp}`
+      `${this.name} 💖REGAINED 10 HP with the 💧BLESSING OF WATER! Current HP: ${this.hp}`
     );
   }
 }

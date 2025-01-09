@@ -9,14 +9,14 @@ class ElectricPokemon extends Pokemon {
 
     if (multiplier % 2 == 0) {
       console.log(
-        `${this.name} uses Thunderbolt on ${
+        `${this.name} uses ⚡Thunderbolt on ${
           opponent.name
         } and deals ${this.calculateDamage()} DAMAGE.`
       );
       opponent.receivedDamage(opponent);
     } else {
       console.log(
-        `${this.name} uses Thunderbolt on ${opponent.name} and deals ${
+        `${this.name} uses ⚡Thunderbolt on ${opponent.name} and deals ${
           this.calculateDamage() * multiplier
         } DAMAGE.`
       );

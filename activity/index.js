@@ -34,12 +34,6 @@ let psyduck = new WaterPokemon("Psyduck", 12, 15, 16);
 let spoink = new Pokemon("Spoink", "Normal", 12, 15, 18);
 let vulpix = new FirePokemon("Vulpix", 16, 18, 20);
 
-/* Mini activity
-    create a function for recievedDamage() and heal()
-
-    ss your code and your results on your chatbox
-*/
-
 //adding pokemons to their respective trainers
 let jonas = new Trainer("Jonas");
 jonas.addPokemon(rayquaza);
@@ -87,7 +81,7 @@ let redPokemon = red.selectPokemon(0);
 // initiating tournament
 let prelim1 = new Tournament(red, wabapet);
 prelim1.battle();
-console.log(prelim1.winner);
+// console.log(prelim1.winner);
 
 let prelim2 = new Tournament(blue, ash);
 prelim2.battle();
